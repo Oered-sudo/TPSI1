@@ -1,0 +1,161 @@
+                         CI5 et CI6 - Cinématique et acquisition
+                         TP – Le berce-bébé Mobycréa
+Contextualisation :
+Le système Mobycréa est un produit à destination du grand public. Il permet de proposer à
+l’utilisateur un dispositif de bercement automatisé, de manière à calmer et faciliter la vie des
+jeunes parents.
+
+Ce système est constitué de deux
+axes en série : un vertical et un
+horizontal.
+
+Pour le bien-être de l’enfant, il
+est nécessaire que la vitesse,
+mais surtout l’accélération, par
+rapport au sol, au niveau de la
+tête de l’enfant, soit limitée.
+
+
+
+
+Dans cette étude, nous proposons donc d’étudier la relation qui existe entre l’accélération
+ressentie par la tête de l’enfant et les vitesses et accélérations angulaires des moteurs.
+
+Objectifs :
+On cherche dans ce TP à déterminer :
+
+      Quelle relation existe entre l’accélération au niveau de la tête de l’enfant et les paramètres
+       de pilotage des moteurs (vitesse, accélération angulaire au niveau des moteurs). On ne
+       cherchera pas à modéliser le réducteur, mais on tiendra compte du rapport de transmission.
+      Mettre en œuvre une mesure du courant ainsi que la mise en forme du signal délivré par le
+       capteur à l’aide d’un montage composé d’amplificateurs opérationnels
+
+
+
+Ressources disponibles :
+Vous disposerez également :
+
+      d’une maquette pilotable dusystème,
+      d’une webcam et du logiciel Tracker,
+      d’un capteur de courant,
+      documentation technique du capteur de courant MR003 (MICROBOT)
+      documentation technique de l'amplificateur opérationnel TL081.
+                                    CI7 et CI6 - Cinématique et acquisition
+                                          TP - Le Mobycréa
+
+Partie 1 : Analyse cinématique proposée
+
+Objectif 1 : Proposer une modélisation cinématique du Mobycréa et son exploitation.
+
+Questionnement proposé :
+         Pourquoi est-il nécessaire de limiter l’accélération au niveau de la tête de l’enfant ?
+
+         Quel point du système présent permet d’étudier l’accélération au niveau de la tête de
+          l’enfant ?
+
+         Quel schéma cinématique de ce système pouvez-vous proposer ? Préciser les hypothèses
+          réalisées. Quel paramétrage proposez-vous ?
+
+         Quel protocole expérimental mettrez-vous en place pour comparer vos résultats théoriques
+          à des résultats expérimentaux ?
+
+         Pouvez-vous quantifier les écarts entre expérience et modélisation ? Pouvez-vous les
+          expliquer ?
+
+
+
+Partie 2 : Projet de conception d'une chaîne d'acquisition, mesure
+du courant moteur
+Objectif 2 : Connaissant partiellement les caractéristiques du système étudié, concevoir et
+mettre en œuvre une chaîne de mesure complète permettant de connaître le courant moteur
+(image du couple fournit par le moteur). Il s'agira dans un premier temps de caractériser le
+fonctionnement du capteur, pour ensuite proposer une mise en forme du signal afin de
+répondre à un cahier des charges spécifiques.
+
+Cahier des charges : capter le courant moteur Im (lié au couple moteur Cem) circulant dans le
+moteur du Mobycréa. Pour un courant évoluant entre 0 à Immax, la chaîne de mise en forme
+devra présenter une tension comprise entre 0 et 5V, afin d'être numérisée par le CAN 8 bits
+d'un microcontrôleur. Actuellement, il a été mesuré que le courant Immax correspond à une
+tension délivrée par le capteur de 2 V. Les valeurs numériques relevées (par conversion) seront
+ensuite transmises par liaison série à un ordinateur, en vue d'afficher une courbe de
+l'évolution du couple dans le moteur.
+
+
+
+
+TSI                                    Lycée Chaptal Saint-Brieuc                                    2
+                                  CI7 et CI6 - Cinématique et acquisition
+                                        TP - Le Mobycréa
+
+On propose de mesurer le couple moteur Cem (moteur
+considéré ici idéal, donc sans pertes) à l'aide d'un capteur
+de courant électronique MR003. En effet, le courant dans
+le moteur du Mobycréa (moteur à courant continu à
+aimants permanents) est proportionnel à son couple. Afin
+de vérifier qu’il n’y a pas d’obstacle dans le mécanisme qui
+amènerait le moteur à « forcer », il est possible de
+mesurer le courant moteur et de vérifier que ce courant
+correspond aux valeurs nominales lorsque le système
+fonctionne de façon conventionnelle. La mesure de
+courant permet alors de sécuriser l’utilisation du Mobycréa puisqu’un dysfonctionnement
+engendre un couple supplémentaire à fournir et donc un courant supplémentaire également.
+En détectant une surintensité au niveau du moteur, on détecte donc qu’il y a un
+dysfonctionnement dans le système.
+
+
+
+2.1 - Modéliser le capteur (fonction « Acquérir »)
+A l'aide de la documentation technique du capteur proposé, nous allons modéliser son
+comportement.
+
+         Définir les grandeurs d'entrées et de sortie de votre capteur, son alimentation.
+
+         Tracer la caractéristique d'entrée/sortie Vout=f(Im) théoriques d'après les
+          informations collectées dans la documentation technique. Vous donnerez l'équation de
+          cette caractéristique.
+
+         Définir un protocole de mesure afin de tracer cette caractéristique de manière
+          expérimentale : matériel utilisé, démarche expérimentale et traitement des données.
+
+         Faire valider votre protocole expérimental par le professeur, puis mettre en œuvre le
+          capteur et réaliser les tests nécessaires d'après votre protocole.
+
+         Comparer les différents modèles et conclure sur leurs pertinences.
+
+2.2 - Étude de la mise en forme du signal (fonction « Mettre en forme »)
+
+La tension de sortie issue du capteur n'est pas en adéquation avec le cahier des charges. On
+va utiliser une structure à amplificateurs opérationnels pour réaliser un changement d'échelle
+(voir le schéma page suivante).
+
+Dans cette structure, la tension VE proviendra du capteur. Il conviendra de choisir
+correctement la valeur de RG pour modifier la pente de la caractéristique c'est à dire le gain
+de l'amplification, de choisir correctement la valeur RO pour choisir la tension de décalage ou
+offset à l'origine VO, et de choisir correctement la tension d’alimentation du pont constitué
+par les résistances R1 et R0.
+
+
+
+TSI                                  Lycée Chaptal Saint-Brieuc                              3
+                                 CI7 et CI6 - Cinématique et acquisition
+                                       TP - Le Mobycréa
+
+
+
+
+         Mettre en équation la structure proposée : vous exprimerez VS en fonction de VE et
+          des éléments du montage.
+
+         Déterminer le gain et l'offset nécessaire pour répondre au cahier des charges.
+
+         Proposer une adaptation de la structure (choix des résistances RG et RO, choix de VCC),
+          et valider vos résultats par simulation (à l'aide du logiciel Proteus).
+
+         Mettre en œuvre la structure et le capteur et valider par la mesure que votre chaîne
+          de mesure répond bien aux attentes du cahier des charges fixé.
+
+
+
+
+TSI                                 Lycée Chaptal Saint-Brieuc                                   4
+
