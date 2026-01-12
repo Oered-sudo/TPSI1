@@ -1,4 +1,5 @@
-✦ Il est crucial de limiter l'accélération au niveau de la tête d'un enfant, en particulier
+Question 1:
+ Il est crucial de limiter l'accélération au niveau de la tête d'un enfant, en particulier
   chez les nourrissons, en raison de leur grande vulnérabilité physique. Des mouvements de
   tête brusques et violents, comme ceux observés dans le syndrome du bébé secoué, peuvent
   avoir des conséquences dramatiques.
@@ -25,4 +26,5 @@
   mentaux, la cécité, ou même le décès. C'est pourquoi il faut manipuler les nourrissons
   avec une grande douceur et toujours soutenir leur tête.
 
+Question 2:
   
