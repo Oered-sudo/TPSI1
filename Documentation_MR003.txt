@@ -1,0 +1,62 @@
+Name: ±5A Linear Current Sensor
+Code: MR003-006.1
+
+
+
+   This board carries the Allegro's ACS714ELCTR-05B-T hall effect-based linear current sensor,
+which offers a low-resistance (~1.2mΩ) current path and electrical isolation up to 2.1kV RMS.
+   The sensor operates at 5V and its analog voltage output has a sensitivity of 185mV/A centered at
+2.5V with a typical error of ±1.5% and a 80kHz bandwidth.
+   Optimized bidirectional current range is from -5A to +5A, but its robustness allows survival of
+the device at up to 5× overcurrent conditions. Top silkscreen shows the direction that is interpreted
+as positive current flow.
+
+   The IC has an internal filter resistance of 1.7kΩ, and the carrier board includes a 1nF filter
+capacitor, which produces a low-pass RC filter with a 93,6kHz cutoff frequency.
+   You can improve sensing system accuracy for low-frequency sensing applictations by adding a
+capacitor in parallel with the integrated 1nF capacitor across the component pads labeled as CF.
+   The frequency F that the filter will attenuate to half its original power is given by:
+
+  F = 1 / (2πRC) = 1 / (10.68kΩ * (1nF + CF))
+
+  where CF is the value of the capacitor added to the filter pads.
+
+
+
+  CONNECTIONS
+
+OUT                            Analog output
+GND                            Ground
++5V                            Supply power (+5V)
+  Tab.1 – Connections
+
+
+
+
+                                                                                                   1
+          MICROBOT di Prosseda Mirko – Strada Chiesuola 117, 04010 Borgo Carso (LT), Italy
+              web: http://www.microbot.it email: info@microbot.it tel: +39-347-2159275
+Microbot – ±5A Linear Current Sensor
+
+
+  SPECIFICATIONS
+
+Supply voltage                     +5V
+Supply current                     10mA typ. (13mA max.)
+Current range                      from -5A to +5A
+Internal resistance                1.2mΩ
+Sensitivity                        185mV/A
+Typical output error               ±1.5%
+Interface                          Analog
+Operating temperature              -40 / +85°C
+Dimensions                         1.1” x 0.8”(27.9 x 20.3 mm)
+Weight                             0.12 oz (3.5 g)
+  Tab.2 – Specifications
+
+
+
+
+                                                                                                 2
+              MICROBOT di Prosseda Mirko – Strada Chiesuola 117, 04010 Borgo Carso (LT), Italy
+                  web: http://www.microbot.it email: info@microbot.it tel: +39-347-2159275
+
