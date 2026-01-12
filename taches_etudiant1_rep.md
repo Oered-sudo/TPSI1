@@ -27,5 +27,4 @@ Question 1:
   avec une grande douceur et toujours soutenir leur tête.
 
 Question 2:
-  Schema cinematique fait !
-  
+  * Schema cinematique fait !
